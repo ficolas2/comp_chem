@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib
 
 # matplotlib.use('module://matplotlib-backend-kitty')
-matplotlib.use('TkAgg')
+# matplotlib.use('TkAgg')
 import matplotlib . pyplot as plt
 from scipy import stats
 
@@ -20,8 +20,10 @@ res = stats.linregress(x , y) # Regresion lineal
 xx = np.array([min(x), max(x)])
 beta = "$\\beta$ = %.1f $cm^{-1}$ " % res.slope
 ax.plot (xx, res.intercept + res.slope * xx, label = beta, color = "tab:blue", lw =2)
+print(res.intercept)
 
 ax.set_xlabel("Theoretical $\\Delta E_{HOMO-LUMO}$ ($\\beta$)" , fontsize =18)
 ax.set_ylabel("Experimental  $\\Delta E_{HOMO-LUMO}$ ($cm^{-1}$)" , fontsize =18)
 ax.legend( fontsize =14 , frameon = False )
-plt.show()
+plt.savefig("report/beta2_plt.png")
+# plt.show()

@@ -17,9 +17,11 @@ ax.plot(x, y, linestyle = "None" , marker= "o" , markersize =8)
 res = stats.linregress(x , y) # Regresion lineal
 xx = np.array([min(x), max(x)])
 beta = "$\\beta$ = %.1f kcal/mol " % res.slope
+print(res.intercept)
 ax.plot (xx, res.intercept + res.slope * xx, label = beta, color = "tab:blue", lw =2)
 
 ax.set_xlabel("Theoretical DE ($\\beta$)" , fontsize =18)
 ax.set_ylabel("Experimental DE (kcal/mol)" , fontsize =18)
 ax.legend( fontsize =14 , frameon = False )
-plt.show()
+plt.savefig("report/beta1_plt.png")
+# plt.show()
